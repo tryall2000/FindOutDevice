@@ -44,11 +44,11 @@ public class Test1 extends Service {
         //设置闹钟从当前时间开始，每隔5s执行一次PendingIntent对象pi，注意第一个参数与第二个参数的关系
         // 5秒后通过PendingIntent pi对象发送广播
         //am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, 0, 5 * 1000, pi); //void android.app.AlarmManager.setRepeating(int type, long triggerAtMillis, long intervalMillis, PendingIntent operation)
-        am.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 60 * 1000, pi);
-
+        //am.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 30 * 1000, pi);
+        am.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 60 * 1000, pi);
         Date dt_Inner = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        tv.setText(df.format(dt_Inner) + "   " + (dt_Inner.getTime() - dt.getTime()));
+        tv.setText(tv.getText()  +"\n"+df.format(dt_Inner) + "   " + (dt_Inner.getTime() - dt.getTime()));
         dt = dt_Inner;
         return super.onStartCommand(intent, flags, startId);
     }

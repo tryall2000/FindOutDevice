@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.SystemClock;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
         //goTime();
         setContentView(R.layout.activity_main);
         TextView tv = (TextView) this.findViewById(R.id.hello);
+        tv.setText(Build.VERSION.SDK_INT + "");
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//
+//        }else{
+//
+//        }
+
 //        tv.setText(System.currentTimeMillis() + "");
 //        Intent intent = new Intent("ELITOR_CLOCK");
 //        intent.putExtra("msg", "五秒钟提示信息");
